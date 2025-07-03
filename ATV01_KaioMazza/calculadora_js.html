@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora com Prompt</title>
+    
+    <script type="text/javascript" src="../js/jquery-3.7.1.min.js"></script>
+
+    <script type="text/javascript">
+        function soma(){
+            var num1 = parseInt(prompt("Digite um número: "));
+            var num2 = parseInt(prompt("Digite outro número:"));
+
+            result=num1+num2;
+
+            document.getElementById("result").innerHTML=result;
+        }
+
+        function subtracao(){
+            var num1 = parseInt(prompt("Digite um número: "));
+            var num2 = parseInt(prompt("Digite outro número:"));
+
+            result=num1-num2;
+
+            document.getElementById("result").innerHTML=result;
+        }
+
+        function multiplicacao(){
+            var num1 = parseInt(prompt("Digite um número: "));
+            var num2 = parseInt(prompt("Digite outro número:"));
+
+            result=num1*num2;
+
+            document.getElementById("result").innerHTML=result;
+        }
+        function divisao(){
+            var num1 = parseInt(prompt("Digite um número: "));
+            var num2 = parseInt(prompt("Digite outro número:"));
+
+            result=num1/num2;
+
+            document.getElementById("result").innerHTML=result;
+        }
+    </script>
+</head>
+<body>
+    <h1>Calculadora Do <i>Comasa</i></h1>
+    <p>Pressione uma operação! Aparecerá dois alertas (um após o outro) para <br> que você digite números.</p>
+
+    <input type="button" id="soma" onclick="soma()" value="+">
+    <input type="button" id="subtracao" onclick="subtracao()" value="-">
+    <input type="button" id="multiplicacao" onclick="multiplicacao()" value="X">
+    <input type="button" id="divisao" onclick="divisao()" value="/">
+
+    <br><br>
+
+    <p id="result"></p>
+</body>
+</html>

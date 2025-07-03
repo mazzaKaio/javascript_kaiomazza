@@ -3,13 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Somando números com JS!</title>
-    
+    <title>Popup's com JS</title>
+
     <script type="text/javascript" src="../js/jquery-3.7.1.min.js"></script>
 </head>
 <body>
     <script type="text/javascript">
-        window.alert(5 + 6);
+        var nome = prompt("Seu nome:")
+        if (nome != null && nome != ""){
+            document.write("Olá " + nome + "!");
+        } else {
+            document.write("Olá anônimo!");
+        }
     </script>
 </body>
 </html>
