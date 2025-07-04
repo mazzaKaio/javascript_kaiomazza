@@ -18,7 +18,7 @@ function telefone(variavel){
 
     variavel = variavel.replace(/^(\d\d)(\d)/g,"($1) $2") // adiciona parenteses em volta dos dois primeiros dígitos.
 
-    variavel = variavel.replace(/(\d{4})(\d)/,"$1-$2") // adiciona hifen entre o quarto e quinto dígito
+    variavel = variavel.replace(/(\d{5})(\d)/,"$1-$2") // adiciona hifen entre o quarto e quinto dígito
 
     return variavel
 }
@@ -40,15 +40,25 @@ function data(variavel){
 
     variavel = variavel.replace(/^(\d\d)(\d)/g,"$1/$2") // adiciona barra depois do segundo digito
 
-    variavel = variavel.replace(/^(\d\d)(\d)/g,"$1/$2") // adiciona barra depois do quarto digito
+    variavel = variavel.replace(/(\d\d)(\d{1,2})/g,"$1/$2") // adiciona barra depois do quarto digito
 
     return variavel
 }
 
-function cartaosus(variavel){
+function sus(variavel){
     variavel = variavel.replace(/\D/g,"")
 
     variavel = variavel.replace(/(\d{6})(\d)/,"$1-$2") // adiciona hifen entre o quarto e quinto dígito
+
+    return variavel
+}
+
+function cepcliente(variavel){
+    variavel = variavel.replace(/\D/g,"")
+
+    variavel = variavel.replace(/^(\d\d)(\d)/g,"$1.$2") // adiciona barra depois do segundo digito
+
+    variavel = variavel.replace(/(\d{3})(\d)/g,"$1-$2") // adiciona barra depois do quarto digito
 
     return variavel
 }
