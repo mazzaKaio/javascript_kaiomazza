@@ -62,3 +62,9 @@ function cepcliente(variavel){
 
     return variavel
 }
+
+function somentetexto(variavel){
+    variavel = variavel.replace(/\d/g,"")
+
+    return variavel
+}
