@@ -4,14 +4,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Evento com JS</title>
 
-    <script src="event.js"></script>
+    <script type="text/javascript" src="../js/jquery-3.7.1.min.js"></script>
 </head>
 <body>
     <h1>Evento - Troca Imagem</h1>
 
-    <img src="image/cat01.jpg" alt="cat" name="imagem"
-    onmouseover="mouseOver()"
-    onmouseout="mouseOut()">
+    <img src="../image/cat01.jpg" alt="cat"
+    onmouseover="this.src='../image/cat02.jpg'"
+    onmouseout="this.src='../image/cat01.jpg'">
 
     <a href="https://br.pinterest.com/cleomarinodaconceicao/gato-fotos/">Clique aqui para mais...</a>
 
