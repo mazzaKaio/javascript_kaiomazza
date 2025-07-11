@@ -12,7 +12,7 @@
         integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
 
 
-    <script src="formulario.js"></script>
+    <script src="formulario.js" defer></script>
 </head>
 
 <body class="mt-2">
@@ -123,11 +123,11 @@
                 <!-- RG e SSP -->
                 <tr>
                     <td class="text-end">
-                        <label class="form-label" for="rg">RG:</label>
+                        <label class="form-label" for="cpf">CPF:</label>
                     </td>
                     <td>
                         <div class="d-flex gap-2 align-items-center mr-4">
-                            <input class="form-control w-auto me-5" type="text" name="rg" required
+                            <input class="form-control w-auto me-5" type="text" name="cpf" required
                                 onkeypress="mascara(this, rgecpf)" maxlength="14">
 
                             <label class="form-label">SSP:</label>
@@ -165,6 +165,29 @@
                     </td>
                 </tr>
 
+                <!-- CEP -->
+                <tr>
+                    <td class="text-end">
+                        <label class="form-label" for="label_cep">CEP:</label>
+                    </td>
+
+                    <td>
+                        <div class="d-flex gap-2">
+                            <input class="form-control w-auto me-5" type="text" onkeypress="mascara(this, cepcliente)"
+                                name="cep" id="cep" maxlength="10" required>
+
+                            <label class="form-label">UF:</label>
+
+                            <select name="uf_cep" id="uf_cep" class="form-select w-auto">
+                                <option value="RS">RS</option>
+                                <option value="SC">SC</option>
+                                <option value="PR">PR</option>
+                                <option value="SP">SP</option>
+                            </select>
+                        </div>
+                    </td>
+                </tr>
+
                 <!-- ENDEREÇO -->
                 <tr>
                     <td class="text-end">
@@ -172,7 +195,7 @@
                     </td>
 
                     <td>
-                        <input class="form-control w-50" type="text" name="endereco" id="" required>
+                        <input class="form-control w-50" type="text" name="endereco" id="endereco" required>
                     </td>
                 </tr>
 
@@ -183,7 +206,7 @@
                     </td>
 
                     <td>
-                        <input class="form-control w-50" type="text" name="bairro" id="" required>
+                        <input class="form-control w-50" type="text" name="bairro" id="bairro" onkeypress="mascara(this, somentetexto)" required>
                     </td>
                 </tr>
 
@@ -194,30 +217,18 @@
                     </td>
 
                     <td>
-                        <input class="form-control w-50" type="text" name="cidade" id="" required>
+                        <input class="form-control w-50" type="text" name="cidade" id="cidade" onkeypress="mascara(this, somentetexto)" required>
                     </td>
                 </tr>
 
-                <!-- CEP -->
+                <!-- PAÍS -->
                 <tr>
                     <td class="text-end">
-                        <label class="form-label" for="cep">CEP:</label>
+                        <label class="form-label" for="numero">Número:</label>
                     </td>
 
                     <td>
-                        <div class="d-flex gap-2">
-                            <input class="form-control w-auto me-5" type="text" onkeypress="mascara(this, cepcliente)"
-                                name="cep" maxlength="10" required>
-
-                            <label class="form-label">UF:</label>
-
-                            <select name="estado_cep" class="form-select w-auto">
-                                <option value="RS">RS</option>
-                                <option value="SC">SC</option>
-                                <option value="PR">PR</option>
-                                <option value="SP">SP</option>
-                            </select>
-                        </div>
+                        <input class="form-control w-50" type="text" onkeypress="mascara(this, somentenum)" name="numero" id="numero" maxlength="5" required>
                     </td>
                 </tr>
 
@@ -228,7 +239,7 @@
                     </td>
 
                     <td>
-                        <input class="form-control w-50" type="text" onkeypress="mascara(this, somentetexto)" name="pais" id="" value="Brasil" required>
+                        <input class="form-control w-50" type="text" onkeypress="mascara(this, somentetexto)" name="pais" id="pais" value="Brasil" required>
                     </td>
                 </tr>
 

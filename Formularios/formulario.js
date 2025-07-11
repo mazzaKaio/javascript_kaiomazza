@@ -53,6 +53,18 @@ function sus(variavel){
     return variavel
 }
 
+function somentetexto(variavel){
+    variavel = variavel.replace(/\d/g,"")
+
+    return variavel
+}
+
+function somentenum(variavel){
+    variavel = variavel.replace(/\D/g,"")
+
+    return variavel
+}
+
 function cepcliente(variavel){
     variavel = variavel.replace(/\D/g,"")
 
@@ -63,8 +75,32 @@ function cepcliente(variavel){
     return variavel
 }
 
-function somentetexto(variavel){
-    variavel = variavel.replace(/\d/g,"")
+// REQUISIÇÃO API - VIACEP
+const cep = document.getElementById('cep');
 
-    return variavel
+cep.addEventListener('blur', () => {
+    if (cep.value.length === 10){
+        var ceplimpo = cep.value.replace(/\D/g, "");
+
+        alert("Aguarde enquanto as informações são resgatadas!");
+
+        getcep(ceplimpo);
+    }
+})
+
+async function getcep(cep){
+    const url = "https://viacep.com.br/ws/" + cep + "/json/";
+
+    const resposta = await fetch(url);
+
+    const dados = await resposta.json();
+
+    preencherFormulario(dados);
+}
+
+function preencherFormulario(dados){
+    document.getElementById('endereco').value = dados.logradouro;
+    document.getElementById('cidade').value = dados.localidade;
+    document.getElementById('bairro').value = dados.bairro;
+    document.getElementById('uf_cep').value = dados.uf;
 }
