@@ -89,13 +89,22 @@ cep.addEventListener('blur', () => {
 })
 
 async function getcep(cep){
-    const url = "https://viacep.com.br/ws/" + cep + "/json/";
+    try {
+        const url = "https://viacep.com.br/ws/" + cep + "/json/";
 
-    const resposta = await fetch(url);
+        const resposta = await fetch(url);
 
-    const dados = await resposta.json();
+        const dados = await resposta.json();
 
-    preencherFormulario(dados);
+        if (dados.erro){
+                throw new Error("CEP não encontrado!");
+        }
+
+        preencherFormulario(dados);
+    } catch (error) {
+        alert("O CEP que você inseriu não é valido! Verifique-o")
+        clearForm();
+    }
 }
 
 function preencherFormulario(dados){
@@ -103,4 +112,14 @@ function preencherFormulario(dados){
     document.getElementById('cidade').value = dados.localidade;
     document.getElementById('bairro').value = dados.bairro;
     document.getElementById('uf_cep').value = dados.uf;
+    document.getElementById('numero').value = '';
+}
+
+function clearForm(){
+    document.getElementById('endereco').value = "";
+    document.getElementById('cidade').value = "";
+    document.getElementById('bairro').value = "";
+    document.getElementById('cep').value = "";
+    document.getElementById('pais').value = "Brasil";
+    document.getElementById('uf_cep').value = 'SP';
 }
